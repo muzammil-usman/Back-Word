@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a3e2233e19.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="script.js"></script>
+    <script defer type="module" src="firebase.js"></script>
+    <title>Back Word</title>
+  </head>
+  <body>
+    <div class="main" id="main">
+      <div class="main-cont" id="mainCont">
+        <header>
+          <a href="index.html" class="logo">back word</a>
+          <nav>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="buttons">
+            <button class="login" onclick="loginer()">Login</button>
+            <button class="signup">Sign Up</button>
+          </div>
+        </header>
+        <div class="hero" id="hero">
+          <h1 class="money">Make Money online</h1>
+          <h2>Your go-to platform for making money online through blogging.</h2>
+          <div class="quote">
+            <p>An investment in knowledge pays the best interest.</p>
+            <blockquote>--Benjamin Franklin</blockquote>
+          </div>
+          <div class="join-now">
+            <button class="join">Join Now</button>
+            <a class="already" href="">Already a member? Log in</a>
+          </div>
+        </div>
+      </div>
+      <form id="loginForm" onsubmit="LoginFormFiller(event)">
+        <i class="fa-solid fa-xmark" id="cross"></i>
+        <h1 style="color: white">Login</h1>
+        <input type="text" id="email" placeholder="Email" />
+        <input type="password" id="password" placeholder="Password" />
+        <button type="submit" class="login">Login</button>
+        <a href="" style="color: white">Create a account here</a>
+      </form>
+    </div>
+  </body>
+</html>
