@@ -10,13 +10,19 @@
     ></script>
     <script defer src="script.js"></script>
     <script defer type="module" src="firebase.js"></script>
-    <title>Back Word</title>
+    <title>For Word</title>
   </head>
   <body>
+    <!-- Main Div - The Grandfather div Starts from here  -->
+
     <div class="main" id="main">
+      <!-- Main Cont - The father div starts from here -->
       <div class="main-cont" id="mainCont">
+        <!-- Header Starts from here -->
         <header>
-          <a href="index.html" class="logo">back word</a>
+          <a href="index.html" class="logo">for word</a>
+
+          <!-- Navbar Starts From here  -->
           <nav>
             <ul>
               <li><a href="#home">Home</a></li>
@@ -24,32 +30,110 @@
               <li><a href="#contact">Contact</a></li>
             </ul>
           </nav>
+          <!-- Navbar ends here  -->
+
+          <i class="fa-solid fa-bars" id="bars" onclick="dropDownOpener()"></i>
+
           <div class="buttons">
-            <button class="login" onclick="loginer()">Login</button>
-            <button class="signup">Sign Up</button>
+            <!-- Login button on navbar -->
+            <button class="login" onclick="loginer(event)">Login</button>
+
+            <!-- SignUp button on navbar -->
+            <button class="signup" onclick="SignUper(event)">Sign Up</button>
           </div>
         </header>
+
+        <!-- Header end here -->
+
+        <!-- Hero Section Starts from here -->
+
         <div class="hero" id="hero">
           <h1 class="money">Make Money online</h1>
-          <h2>Your go-to platform for making money online through blogging.</h2>
+          <h2 class="sub-heading">
+            Your go-to platform for making money online through blogging.
+          </h2>
           <div class="quote">
             <p>An investment in knowledge pays the best interest.</p>
             <blockquote>--Benjamin Franklin</blockquote>
           </div>
           <div class="join-now">
             <button class="join">Join Now</button>
-            <a class="already" href="">Already a member? Log in</a>
+            <a class="already" href="" onclick="loginer(event)"
+              >Already a member? Log in</a
+            >
           </div>
         </div>
+
+        <!-- Hero Section end here -->
       </div>
+      <!-- Main Cont - Ends here -->
+
+      <!-- Login Form Starts from here -->
       <form id="loginForm" onsubmit="LoginFormFiller(event)">
-        <i class="fa-solid fa-xmark" id="cross"></i>
+        <i class="fa-solid fa-xmark" id="cross" onclick="loginCrosser()"></i>
         <h1 style="color: white">Login</h1>
-        <input type="text" id="email" placeholder="Email" />
-        <input type="password" id="password" placeholder="Password" />
+        <input
+          type="text"
+          id="email"
+          style="text-transform: none"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          style="text-transform: none"
+        />
         <button type="submit" class="login">Login</button>
         <a href="" style="color: white">Create a account here</a>
       </form>
+      <!-- Login Form ends here -->
+
+      <!-- SignUp Form Starts from here -->
+      <form id="signUpForm" onsubmit="SignUpForm(event)">
+        <i class="fa-solid fa-xmark" id="cross" onclick="signUpCrosser()"></i>
+        <h1 style="color: white">Sign Up</h1>
+        <input type="text" placeholder="name" class="name" /><input
+          type="text"
+          placeholder="username"
+          class="username"
+        /><input type="email" placeholder="email" class="email" /><input
+          type="password"
+          placeholder="password"
+          class="password"
+        /><input
+          type="password"
+          placeholder="confirm password"
+          class="confirmPw"
+        /><input type="date" placeholder="date of birth" class="DOB" />
+        <div class="gender">
+          <p>Select your gender :</p>
+          <label for="male">Male</label>
+          <input type="radio" id="male" value="male" name="gender" />
+          <label for="female">female</label>
+          <input type="radio" id="female" value="female" name="gender" />
+        </div>
+        <div class="city">
+          <label for="selectCity">Select City :</label>
+          <select name="" id="selectCity">
+            <option value="" hidden>Select City</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Quetta">Quetta</option>
+            <option value="Peshawar">Peshawar</option>
+            <option value="Lahore">Lahore</option>
+          </select>
+        </div>
+        <button type="Submit" class="formSignUpBtn">Sign Up</button>
+        <button id="googleBtn">
+          <i class="fa-brands fa-google"></i><span>Sign up with google </span>
+        </button>
+
+        <a class="already" href="" onclick="loginer(event)"
+          >Already a member? Log in</a
+        >
+      </form>
+      <!-- SignUp Form end here -->
     </div>
   </body>
 </html>
