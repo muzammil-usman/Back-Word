@@ -95,6 +95,9 @@ nav ul li a {
 
 #bars {
   display: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .money {
@@ -110,7 +113,7 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 25px;
+  gap: 30px;
   align-items: center;
   text-align: center;
 }
@@ -123,11 +126,12 @@ nav ul li a {
   gap: 15px;
 }
 .join {
-  width: 200px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
   background-color: var(--primaryColour);
   border-color: transparent;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  color: white;
   &:hover {
     background-color: var(--btnColour);
     transition: ease-in-out;
@@ -151,12 +155,12 @@ nav ul li a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 15px;
   position: absolute;
   top: 15%;
   left: 0;
   width: 100vw;
-  height: 200px;
+  height: 250px;
   font-size: 1.5rem;
   background-color: var(--bgColor);
 }
@@ -183,9 +187,9 @@ nav ul li a {
 #signUpForm {
   position: relative;
   width: 320px;
-  height: 600px;
+  height: 550px;
   display: none;
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -268,7 +272,9 @@ nav ul li a {
     width: 95%;
     gap: 50px;
   }
-
+  .logo {
+    font-size: 1.5rem;
+  }
   #bars {
     display: block;
   }
@@ -292,6 +298,10 @@ nav ul li a {
 }
 
 @media screen and (max-width: 425px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
   .money {
     font-size: 2.5rem;
   }

@@ -25,7 +25,7 @@
           <!-- Navbar Starts From here  -->
           <nav>
             <ul>
-              <li><a href="#home">Home</a></li>
+              <li><a href="#hero">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -57,7 +57,7 @@
             <blockquote>--Benjamin Franklin</blockquote>
           </div>
           <div class="join-now">
-            <button class="join">Join Now</button>
+            <button class="join" onclick="SignUper(event)">Join Now</button>
             <a class="already" href="" onclick="loginer(event)"
               >Already a member? Log in</a
             >
@@ -80,41 +80,67 @@
         />
         <input
           type="password"
-          id="password"
+          id="loginPw"
+          class="password"
           placeholder="Password"
           style="text-transform: none"
         />
         <button type="submit" class="login">Login</button>
-        <a href="" style="color: white">Create a account here</a>
+        <a href="" style="color: white" onclick="SignUper(event);shuffler2()"
+          >Create an account here</a
+        >
       </form>
       <!-- Login Form ends here -->
 
       <!-- SignUp Form Starts from here -->
-      <form id="signUpForm" onsubmit="SignUpForm(event)">
+      <form id="signUpForm" onsubmit="signUpFormFiller(event)">
         <i class="fa-solid fa-xmark" id="cross" onclick="signUpCrosser()"></i>
         <h1 style="color: white">Sign Up</h1>
-        <input type="text" placeholder="name" class="name" /><input
+        <input
           type="text"
-          placeholder="username"
+          placeholder="Name"
+          id="name"
+          class="name"
+          style="text-transform: none"
+        /><input
+          type="text"
+          placeholder="Username"
           class="username"
-        /><input type="email" placeholder="email" class="email" /><input
-          type="password"
-          placeholder="password"
-          class="password"
+          id="username"
+          style="text-transform: none"
+        /><input
+          type="email"
+          placeholder="Email"
+          class="email"
+          id="email"
+          style="text-transform: none"
         /><input
           type="password"
-          placeholder="confirm password"
+          placeholder="Password"
+          class="password"
+          id="signUpPw"
+          style="text-transform: none"
+        /><input
+          type="password"
+          placeholder="Confirm Password"
           class="confirmPw"
-        /><input type="date" placeholder="date of birth" class="DOB" />
+          id="confirmPw"
+          style="text-transform: none"
+        /><input
+          type="date"
+          placeholder="Date of birth"
+          class="DOB"
+          style="text-transform: none"
+        />
         <div class="gender">
-          <p>Select your gender :</p>
-          <label for="male">Male</label>
+          <p style="color: white">Select your gender :</p>
+          <label for="male" style="color: white">Male</label>
           <input type="radio" id="male" value="male" name="gender" />
-          <label for="female">female</label>
+          <label for="female" style="color: white">female</label>
           <input type="radio" id="female" value="female" name="gender" />
         </div>
         <div class="city">
-          <label for="selectCity">Select City :</label>
+          <label for="selectCity" style="color: white">Select City :</label>
           <select name="" id="selectCity">
             <option value="" hidden>Select City</option>
             <option value="Karachi">Karachi</option>
@@ -129,7 +155,11 @@
           <i class="fa-brands fa-google"></i><span>Sign up with google </span>
         </button>
 
-        <a class="already" href="" onclick="loginer(event)"
+        <a
+          class="already"
+          href=""
+          style="color: white"
+          onclick="loginer(event);shuffler();"
           >Already a member? Log in</a
         >
       </form>
