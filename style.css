@@ -147,6 +147,7 @@ nav ul li a {
     transition: ease-in-out;
     transition-duration: 1s;
     color: var(--btnColour);
+    cursor: pointer;
   }
 }
 
@@ -210,6 +211,7 @@ nav ul li a {
 
 #email,
 #password,
+#loginEmail,
 .name,
 .username,
 .email,

@@ -8,7 +8,7 @@
       src="https://kit.fontawesome.com/a3e2233e19.js"
       crossorigin="anonymous"
     ></script>
-    <script defer src="script.js"></script>
+    <script defer src="script.js" type="module"></script>
     <script defer type="module" src="firebase.js"></script>
     <title>For Word</title>
   </head>
@@ -32,14 +32,14 @@
           </nav>
           <!-- Navbar ends here  -->
 
-          <i class="fa-solid fa-bars" id="bars" onclick="dropDownOpener()"></i>
+          <i class="fa-solid fa-bars" id="bars"></i>
 
           <div class="buttons">
             <!-- Login button on navbar -->
-            <button class="login" onclick="loginer(event)">Login</button>
+            <button class="login" id="login">Login</button>
 
             <!-- SignUp button on navbar -->
-            <button class="signup" onclick="SignUper(event)">Sign Up</button>
+            <button class="signup" id="signUp">Sign Up</button>
           </div>
         </header>
 
@@ -57,10 +57,8 @@
             <blockquote>--Benjamin Franklin</blockquote>
           </div>
           <div class="join-now">
-            <button class="join" onclick="SignUper(event)">Join Now</button>
-            <a class="already" href="" onclick="loginer(event)"
-              >Already a member? Log in</a
-            >
+            <button class="join" id="joinBtn">Join Now</button>
+            <a class="already" id="already">Already a member? Log in</a>
           </div>
         </div>
 
@@ -69,12 +67,12 @@
       <!-- Main Cont - Ends here -->
 
       <!-- Login Form Starts from here -->
-      <form id="loginForm" onsubmit="LoginFormFiller(event)">
-        <i class="fa-solid fa-xmark" id="cross" onclick="loginCrosser()"></i>
+      <form id="loginForm">
+        <i class="fa-solid fa-xmark" id="cross"></i>
         <h1 style="color: white">Login</h1>
         <input
           type="text"
-          id="email"
+          id="loginEmail"
           style="text-transform: none"
           placeholder="Email"
         />
@@ -112,7 +110,7 @@
           type="email"
           placeholder="Email"
           class="email"
-          id="email"
+          id="signUpEmail"
           style="text-transform: none"
         /><input
           type="password"
@@ -131,6 +129,7 @@
           placeholder="Date of birth"
           class="DOB"
           style="text-transform: none"
+          id="DOB"
         />
         <div class="gender">
           <p style="color: white">Select your gender :</p>
