@@ -51,7 +51,7 @@ header {
   align-items: center;
 }
 .logo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
 }
 
@@ -198,7 +198,8 @@ nav ul li a {
   background-color: var(--bgColor);
 }
 
-#cross {
+#cross,
+#signUpCrossBtn {
   position: absolute;
   right: 0;
   top: 0;
@@ -229,12 +230,6 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   width: 320px;
-  height: 30px;
-}
-
-#selectCity {
-  width: 100px;
-  text-align: center;
   height: 30px;
 }
 

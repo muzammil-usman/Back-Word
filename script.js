@@ -1,6 +1,24 @@
-import { app, auth, createUserWithEmailAndPassword } from "./firebase.js";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "./firebase.js";
 
-// Delclaration of grandfather and father variables
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+    console.log("user andar hey ", uid);
+    window.location.replace("./Feed/feed.html");
+  } else {
+    console.log("user andar nahi hey");
+    if (location.pathname !== "/index.html") {
+      window.location.replace("index.html");
+    }
+  }
+});
+
+// Declaration of grandfather and father variables
 var main = document.getElementById("main");
 var mainCont = document.getElementById("mainCont");
 
@@ -19,13 +37,24 @@ var dropDownOpener = () => {
     let dropDown = document.createElement("div");
     dropDown.setAttribute("class", "dropdown");
     dropDown.innerHTML = `<a href="">Home</a><a href="">Categories</a> <a href="">Why choose us</a> <a href="">Contact</a>
-            <button class="login" onclick="loginer(event)" >Login</button>
-            <button class="signup" onclick="SignUper(event)">Sign Up</button>
+            <button class="login" id="dropDownLogin" >Login</button>
+            <button class="signup" id="dropDownSignUp">Sign Up</button>
 
     `;
 
     let main = document.getElementById("mainCont");
     main.appendChild(dropDown);
+
+    var dropDownLoginBtn = document.querySelector("#dropDownLogin");
+
+    dropDownLoginBtn.addEventListener("click", function (event) {
+      loginer(event);
+    });
+
+    var dropDownSignUpBtn = document.getElementById("dropDownSignUp");
+    dropDownSignUpBtn.addEventListener("click", function (event) {
+      SignUper(event);
+    });
   }
 };
 
@@ -66,6 +95,10 @@ var signUpFormFiller = (e) => {
     alert("Username should be at least 6 characters long.");
     return;
   }
+  if (signUpPassword.value.length < 6) {
+    alert("Weak Password ! Password should be greater than 6 digits");
+    return;
+  }
 
   if (signUpPassword.value !== confirmPw.value) {
     alert("Password and Confirm Password do not match.");
@@ -76,14 +109,29 @@ var signUpFormFiller = (e) => {
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
+      console.log(user);
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log(errorMessage);
       // ..
-    });
+    })
+    .then(
+      ((Uname.value = ""),
+      (email.value = ""),
+      (signUpPassword.value = ""),
+      (confirmPw.value = ""),
+      (username.value = ""),
+      (dob.value = ""))
+    );
 };
+
+var signUpForm = document.getElementById("signUpForm");
+signUpForm.addEventListener("submit", function (event) {
+  signUpFormFiller(event);
+});
 
 var loginEmail = document.getElementById("loginEmail");
 var loginPassword = document.getElementById("loginPw");
@@ -94,8 +142,19 @@ function LoginFormFiller(e) {
     alert("Please fill below fields");
     return;
   }
-  console.log(loginEmail.value);
-  console.log(loginPassword.value);
+
+  signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+      console.log("login hogaya", user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log("error aagaya", errorMessage);
+    });
 
   loginEmail.value = "";
   loginPassword.value = "";
@@ -144,7 +203,6 @@ var loginCrosser = () => {
   main.classList.remove("newMain");
   main.appendChild(mainCont);
   loginForm.style.display = "none";
-  console.log("all set");
 };
 
 var loginCrossBtn = document.getElementById("cross");
@@ -156,17 +214,37 @@ var signUpCrosser = () => {
   main.classList.remove("newMain");
   main.appendChild(mainCont);
   signUpForm.style.display = "none";
-  console.log("all set");
 };
+
+var signUpCrossBtn = document.getElementById("signUpCrossBtn");
+signUpCrossBtn.addEventListener("click", function () {
+  signUpCrosser();
+});
+
+var createAccount = document.getElementById("createAccount");
+createAccount.addEventListener("click", function (event) {
+  SignUper(event);
+});
 
 var shuffler = () => {
   signUpForm.style.display = "none";
 };
 
+var alreadyMember = document.getElementById("alreadyMember");
+alreadyMember.addEventListener("click", function (event) {
+  loginer(event);
+});
+
 var shuffler2 = () => {
   loginForm.style.display = "none";
 };
+alreadyMember.addEventListener("click", function () {
+  shuffler();
+});
+
+createAccount.addEventListener("click", function () {
+  shuffler2();
+});
 
 var loginForm = document.getElementById("loginForm");
 var signUpForm = document.getElementById("signUpForm");
-var crossBtn = document.getElementById("cross");

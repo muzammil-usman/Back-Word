@@ -84,15 +84,15 @@
           style="text-transform: none"
         />
         <button type="submit" class="login">Login</button>
-        <a href="" style="color: white" onclick="SignUper(event);shuffler2()"
+        <a href="" id="createAccount" style="color: white"
           >Create an account here</a
         >
       </form>
       <!-- Login Form ends here -->
 
       <!-- SignUp Form Starts from here -->
-      <form id="signUpForm" onsubmit="signUpFormFiller(event)">
-        <i class="fa-solid fa-xmark" id="cross" onclick="signUpCrosser()"></i>
+      <form id="signUpForm">
+        <i class="fa-solid fa-xmark" id="signUpCrossBtn"></i>
         <h1 style="color: white">Sign Up</h1>
         <input
           type="text"
@@ -100,12 +100,14 @@
           id="name"
           class="name"
           style="text-transform: none"
+          autocomplete="name"
         /><input
           type="text"
           placeholder="Username"
           class="username"
           id="username"
           style="text-transform: none"
+          autocomplete="username"
         /><input
           type="email"
           placeholder="Email"
@@ -138,27 +140,13 @@
           <label for="female" style="color: white">female</label>
           <input type="radio" id="female" value="female" name="gender" />
         </div>
-        <div class="city">
-          <label for="selectCity" style="color: white">Select City :</label>
-          <select name="" id="selectCity">
-            <option value="" hidden>Select City</option>
-            <option value="Karachi">Karachi</option>
-            <option value="Islamabad">Islamabad</option>
-            <option value="Quetta">Quetta</option>
-            <option value="Peshawar">Peshawar</option>
-            <option value="Lahore">Lahore</option>
-          </select>
-        </div>
+
         <button type="Submit" class="formSignUpBtn">Sign Up</button>
         <button id="googleBtn">
           <i class="fa-brands fa-google"></i><span>Sign up with google </span>
         </button>
 
-        <a
-          class="already"
-          href=""
-          style="color: white"
-          onclick="loginer(event);shuffler();"
+        <a class="already" href="" id="alreadyMember" style="color: white"
           >Already a member? Log in</a
         >
       </form>
