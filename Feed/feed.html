@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="feed.js" type="module" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="feed.css" />
     <script
       src="https://kit.fontawesome.com/a3e2233e19.js"
@@ -24,9 +25,23 @@
             <div class="circle">
               <i class="fa-solid fa-user"></i>
             </div>
-            <p>Username</p>
+            <p id="bottomName">Username</p>
           </div>
         </header>
+        <div class="absoluteElements">
+          <div class="userPf">
+            <div class="circle">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <p id="bottomName">Username</p>
+          </div>
+          <div class="userPf">
+            <div class="circle">
+              <i class="fa-solid fa-power-off" id="powerBtn"></i>
+            </div>
+            <p id="logText">Log Out</p>
+          </div>
+        </div>
       </div>
     </div>
   </body>

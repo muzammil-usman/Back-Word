@@ -87,45 +87,33 @@ var signUpFormFiller = (e) => {
     !confirmPw.value ||
     !genderChecker()
   ) {
-    alert("Something is missing. Please fill all the fields.");
+    Swal.fire("Kindly Fills all fields");
     return;
   }
 
   if (username.value.length < 6) {
-    alert("Username should be at least 6 characters long.");
+    Swal.fire("Username should be at least 6 characters long.");
     return;
   }
   if (signUpPassword.value.length < 6) {
-    alert("Weak Password ! Password should be greater than 6 digits");
+    Swal.fire("Weak Password ! Password should be greater than 6 digits");
     return;
   }
 
   if (signUpPassword.value !== confirmPw.value) {
-    alert("Password and Confirm Password do not match.");
+    Swal.fire("Password and Confirm Password do not match.");
     return;
   }
 
   createUserWithEmailAndPassword(auth, email.value, signUpPassword.value)
     .then((userCredential) => {
-      // Signed up
       const user = userCredential.user;
       console.log(user);
-      // ...
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      // ..
-    })
-    .then(
-      ((Uname.value = ""),
-      (email.value = ""),
-      (signUpPassword.value = ""),
-      (confirmPw.value = ""),
-      (username.value = ""),
-      (dob.value = ""))
-    );
+      Swal.fire(errorCode);
+    });
 };
 
 var signUpForm = document.getElementById("signUpForm");
@@ -139,25 +127,26 @@ var loginPassword = document.getElementById("loginPw");
 function LoginFormFiller(e) {
   e.preventDefault();
   if (!loginEmail.value || !loginPassword.value) {
-    alert("Please fill below fields");
+    Swal.fire("Kindly fills below fields");
     return;
   }
 
   signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
-      // ...
-      console.log("login hogaya", user);
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+        text: "Welcome back!",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      });
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log("error aagaya", errorMessage);
+      Swal.fire(errorCode);
     });
-
-  loginEmail.value = "";
-  loginPassword.value = "";
 }
 
 var loginForm = document.getElementById("loginForm");
