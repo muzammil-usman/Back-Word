@@ -12,9 +12,6 @@ onAuthStateChanged(auth, (user) => {
     window.location.replace("./Feed/feed.html");
   } else {
     console.log("user andar nahi hey");
-    if (location.pathname !== "index.html") {
-      window.location.replace("index.html");
-    }
   }
 });
 
