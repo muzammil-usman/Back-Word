@@ -3,6 +3,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithPopup,
+  GoogleAuthProvider,
+  provider,
 } from "./firebase.js";
 
 onAuthStateChanged(auth, (user) => {
@@ -234,3 +237,25 @@ createAccount.addEventListener("click", function () {
 
 var loginForm = document.getElementById("loginForm");
 var signUpForm = document.getElementById("signUpForm");
+
+let googleSignIn = async (e) => {
+  e.preventDefault();
+  await signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.customData.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+};
+
+let googleBtn = document.getElementById("googleBtn");
+googleBtn.addEventListener("click", function (event) {
+  googleSignIn(event);
+});

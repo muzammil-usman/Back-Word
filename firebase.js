@@ -4,7 +4,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
   signOut,
+  deleteUser,
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -19,6 +22,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 export {
   auth,
@@ -26,4 +30,8 @@ export {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  deleteUser,
+  GoogleAuthProvider,
+  signInWithPopup,
+  provider,
 };

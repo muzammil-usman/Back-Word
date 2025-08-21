@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged, signOut } from "../firebase.js";
+import { auth, signOut, onAuthStateChanged } from "../firebase.js";
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -14,22 +14,6 @@ onAuthStateChanged(auth, (user) => {
     window.location.replace("/Back-Word/");
     // window.location.replace("/index.html");
   }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const searchBar = document.querySelector(".searchBar");
-  const searchIcon = document.querySelector(".fa-magnifying-glass");
-
-  searchIcon.addEventListener("click", () => {
-    searchBar.classList.toggle("active");
-
-    const input = searchBar.querySelector("#search");
-    if (searchBar.classList.contains("active")) {
-      input.focus();
-    } else {
-      input.blur();
-    }
-  });
 });
 
 function signOuter() {
@@ -57,15 +41,8 @@ function signOuter() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const powerBtn =
-    document.getElementById("powerBtn") || document.getElementById("logText");
+  const powerBtn = document.getElementById("logOutBtn");
   if (powerBtn) {
     powerBtn.addEventListener("click", signOuter);
   }
-});
-
-let profileDiv = document.getElementById("topCircleDiv");
-
-profileDiv.addEventListener("click", function () {
-  window.location.href = "../Profile/profile.html";
 });

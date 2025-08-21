@@ -175,7 +175,7 @@ nav ul li a {
 #loginForm {
   position: relative;
   width: 320px;
-  height: 400px;
+  height: 350px;
   display: none;
   gap: 20px;
   justify-content: center;
@@ -188,7 +188,7 @@ nav ul li a {
 #signUpForm {
   position: relative;
   width: 320px;
-  height: 550px;
+  height: 500px;
   display: none;
   gap: 10px;
   justify-content: center;
@@ -247,7 +247,7 @@ nav ul li a {
   }
 }
 #googleBtn {
-  width: 200px;
+  width: 175px;
   height: 30px;
   display: flex;
   justify-content: center;
